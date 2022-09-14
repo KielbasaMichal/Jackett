@@ -106,7 +106,7 @@ namespace Jackett.Common.Indexers
             AddCategoryMapping(53, TorznabCatType.ConsolePS4, "Games/PS4");
             AddCategoryMapping(54, TorznabCatType.MoviesHD, "Movies/x265/1080");
 
-            _appId = "jackett_" + EnvironmentUtil.JackettVersion();
+            _appId = "app_" + Guid.NewGuid().ToString();
 
             EnableConfigurableRetryAttempts();
         }
