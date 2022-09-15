@@ -25,11 +25,20 @@ jobs:
       
     - name: Dotnet Publish Jackett Linux x64
       run: dotnet publish Jackett.Server -p:Version=${{ github.event.inputs.version }} -f net6.0 --sc -r linux-x64 -c Release -o ${{env.DOTNET_ROOT}}/Jackett.Linux.x64
-    
-    - name: Create Archive
+      
+    - name: Create Linux Archive
       run: |
         cd ${{env.DOTNET_ROOT}}/Jackett.Linux.x64
-        tar -czvf Jackett.Common.tar.gz Jackett.Common.dll Jackett.Common.pdb
+        tar -czvf Jackett.Common.Linux.tar.gz Jackett.Common.dll Jackett.Common.pdb
+      
+    - name: Dotnet Publish Jackett.Server Windows x64
+      run: dotnet publish Jackett.Server -p:Version=${{ github.event.inputs.version }} -f net6.0 --sc -r win-x64 -c Release -o ${{env.DOTNET_ROOT}}/Jackett.Windows.x64
+    
+    - name: Create Windows Archive
+      run: |
+        apt install zip
+        cd ${{env.DOTNET_ROOT}}/Jackett.Windows.x64
+        zip Jackett.Common.Windows.zip Jackett.Common.dll Jackett.Common.pdb
     
     - name: Release
       uses: softprops/action-gh-release@v1
@@ -38,4 +47,5 @@ jobs:
         tag_name: v${{ github.event.inputs.version }}
         body: 'Changelog: https://github.com/Jackett/Jackett/releases/tag/v${{ github.event.inputs.version }}'
         files: |
-          ${{env.DOTNET_ROOT}}/Jackett.Linux.x64/Jackett.Common.tar.gz
+          ${{env.DOTNET_ROOT}}/Jackett.Linux.x64/Jackett.Common.Linux.tar.gz
+          ${{env.DOTNET_ROOT}}/Jackett.Windows.x64/Jackett.Common.Windows.zip
