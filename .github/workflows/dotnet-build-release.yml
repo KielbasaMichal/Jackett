@@ -1,4 +1,4 @@
-name: .NET Build
+name: .NET Build and Release
 
 on:
   workflow_dispatch:
@@ -23,8 +23,11 @@ jobs:
       with:
         dotnet-version: 6.0.*
       
-    - name: Dotnet Publish Jackett.Serve Linux x64
+    - name: Dotnet Publish Jackett Linux x64
       run: dotnet publish Jackett.Server -p:Version=${{ github.event.inputs.version }} -f net6.0 --sc -r linux-x64 -c Release -o ${{env.DOTNET_ROOT}}/Jackett.Linux.x64
+    
+    - name: Create Archive
+      run: tar -czvf ${{env.DOTNET_ROOT}}/Jackett.Common.tar.gz ${{env.DOTNET_ROOT}}/Jackett.Linux.x64/Jackett.Common.dll ${{env.DOTNET_ROOT}}/Jackett.Linux.x64/Jackett.Common.pdb
     
     - name: Release
       uses: softprops/action-gh-release@v1
@@ -32,5 +35,4 @@ jobs:
         name: v${{ github.event.inputs.version }}
         tag_name: v${{ github.event.inputs.version }}
         files: |
-          ${{env.DOTNET_ROOT}}/Jackett.Windows.x64Jackett.Common.dll
-          ${{env.DOTNET_ROOT}}/Jackett.Windows.x64Jackett.Common.pdb
+          ${{env.DOTNET_ROOT}}/Jackett.Common.v${{ github.event.inputs.version }}.tar.gz
