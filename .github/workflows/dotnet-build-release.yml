@@ -1,0 +1,35 @@
+name: .NET Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version of Jackett'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: ./src
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.*
+      
+    - name: Dotnet Publish Jackett.Serve Linux x64
+      run: dotnet publish Jackett.Server -p:Version=${{ github.event.inputs.version }} -f net6.0 --sc -r linux-x64 -c Release -o ${{env.DOTNET_ROOT}}/Jackett.Linux.x64
+    
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: v${{ github.event.inputs.version }}
+        files: |
+          ${{env.DOTNET_ROOT}}/Jackett.Windows.x64Jackett.Common.dll
+          ${{env.DOTNET_ROOT}}/Jackett.Windows.x64Jackett.Common.pdb
