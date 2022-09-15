@@ -30,6 +30,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         name: v${{ github.event.inputs.version }}
+        tag_name: v${{ github.event.inputs.version }}
         files: |
           ${{env.DOTNET_ROOT}}/Jackett.Windows.x64Jackett.Common.dll
           ${{env.DOTNET_ROOT}}/Jackett.Windows.x64Jackett.Common.pdb
