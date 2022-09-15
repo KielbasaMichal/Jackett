@@ -29,12 +29,13 @@ jobs:
     - name: Create Archive
       run: |
         cd ${{env.DOTNET_ROOT}}/Jackett.Linux.x64
-        tar -czvf Jackett.Common.v${{ github.event.inputs.version }}.tar.gz Jackett.Common.dll Jackett.Common.pdb
+        tar -czvf Jackett.Common.tar.gz Jackett.Common.dll Jackett.Common.pdb
     
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
         name: v${{ github.event.inputs.version }}
         tag_name: v${{ github.event.inputs.version }}
+        body: 'Changelog: https://github.com/Jackett/Jackett/releases/tag/v${{ github.event.inputs.version }}'
         files: |
-          ${{env.DOTNET_ROOT}}/Jackett.Linux.x64/Jackett.Common.v${{ github.event.inputs.version }}.tar.gz
+          ${{env.DOTNET_ROOT}}/Jackett.Linux.x64/Jackett.Common.tar.gz
