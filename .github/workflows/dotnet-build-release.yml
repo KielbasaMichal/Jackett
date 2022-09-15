@@ -31,12 +31,11 @@ jobs:
         cd ${{env.DOTNET_ROOT}}/Jackett.Linux.x64
         tar -czvf Jackett.Common.Linux.tar.gz Jackett.Common.dll Jackett.Common.pdb
       
-    - name: Dotnet Publish Jackett.Server Windows x64
+    - name: Dotnet Publish Jackett Windows x64
       run: dotnet publish Jackett.Server -p:Version=${{ github.event.inputs.version }} -f net6.0 --sc -r win-x64 -c Release -o ${{env.DOTNET_ROOT}}/Jackett.Windows.x64
     
     - name: Create Windows Archive
       run: |
-        sudo apt install -y zip
         cd ${{env.DOTNET_ROOT}}/Jackett.Windows.x64
         zip Jackett.Common.Windows.zip Jackett.Common.dll Jackett.Common.pdb
     
