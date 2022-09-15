@@ -32,16 +32,30 @@ jobs:
     - name: Dotnet Publish Jackett.Serve Linux x64
       run: dotnet publish Jackett.Server -p:Version=${{ github.event.inputs.version }} -f net6.0 --sc -r linux-x64 -c Release -o ${{env.DOTNET_ROOT}}/Jackett.Linux.x64
     
-    - name: Upload Windows x64 Artifact
+    - name: Upload Windows x64 Jackett Binaries
       uses: actions/upload-artifact@v3
       with:
         name: Jackett.Binaries.WindowsAMDx64_v${{ github.event.inputs.version }}
         path: ${{env.DOTNET_ROOT}}/Jackett.Windows.x64
         retention-days: 30
+
+    - name: Upload Windows x64 Jackett.Common Binaries
+      uses: actions/upload-artifact@v3
+      with:
+        name: Jackett.Common.Binaries.WindowsAMDx64_v${{ github.event.inputs.version }}
+        path: ${{env.DOTNET_ROOT}}/Jackett.Windows.x64/Jackett.Common.*
+        retention-days: 30
         
-    - name: Upload Linux x64 Artifact
+    - name: Upload Linux x64 Jackett Binaries
       uses: actions/upload-artifact@v3
       with:
         name: Jackett.Binaries.LinuxAMDx64_v${{ github.event.inputs.version }}
         path: ${{env.DOTNET_ROOT}}/Jackett.Linux.x64
+        retention-days: 30
+
+    - name: Upload Linux x64 Jackett.Common Binaries
+      uses: actions/upload-artifact@v3
+      with:
+        name: Jackett.Common.Binaries.LinuxAMDx64_v${{ github.event.inputs.version }}
+        path: ${{env.DOTNET_ROOT}}/Jackett.Linux.x64/Jackett.Common.*
         retention-days: 30
