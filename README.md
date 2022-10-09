@@ -106,7 +106,6 @@ A third-party Golang SDK for Jackett is available from [webtor-io/go-jackett](ht
  * NoNaMe Club (NNM-Club)
  * Nyaa.si
  * OneJAV
- * OpenSharing
  * ParnuXi
  * PC-torrent
  * PiratBit
@@ -379,6 +378,7 @@ A third-party Golang SDK for Jackett is available from [webtor-io/go-jackett](ht
  * HD-Space (HDS)
  * HD-Spain [![(invite needed)][inviteneeded]](#)
  * HD-Torrents (HDT)
+ * HD-UNiT3D
  * HD4FANS [![(invite needed)][inviteneeded]](#)
  * HDAI
  * HDArea (HDA)
@@ -534,7 +534,6 @@ A third-party Golang SDK for Jackett is available from [webtor-io/go-jackett](ht
  * teracod (Movie Zone)
  * The Falling Angels (TFA) [![(invite needed)][inviteneeded]](#)
  * The Geeks
- * The Horror Charnel (THC)
  * The New Retro
  * The Occult [![(invite needed)][inviteneeded]](#)
  * The Place [![(invite needed)][inviteneeded]](#)
