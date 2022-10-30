@@ -46,7 +46,6 @@ A third-party Golang SDK for Jackett is available from [webtor-io/go-jackett](ht
  * BT4G
  * BTDIGG
  * BTMET
- * BTmirror
  * BTSOW
  * Byrutor
  * CloudTorrents
@@ -224,7 +223,6 @@ A third-party Golang SDK for Jackett is available from [webtor-io/go-jackett](ht
  * Sharewood
  * SkTorrent
  * SkTorrent-org
- * SoundPark
  * themixingbowl (TMB)
  * Toloka.to
  * Torrent-Explosiv
@@ -295,7 +293,6 @@ A third-party Golang SDK for Jackett is available from [webtor-io/go-jackett](ht
  * BroadcasTheNet (BTN)
  * BroadCity
  * BrokenStones [![(invite needed)][inviteneeded]](#)
- * BreizhPeers
  * BrSociety
  * BTNext (BTNT) [![(invite needed)][inviteneeded]](#)
  * BTSCHOOL
@@ -396,7 +393,6 @@ A third-party Golang SDK for Jackett is available from [webtor-io/go-jackett](ht
  * Hebits
  * HHanClub
  * House of Devil
- * HQSource (HQS)
  * ImmortalSeed (iS)
  * Immortuos
  * Indietorrents [![(invite needed)][inviteneeded]](#)
@@ -826,7 +822,7 @@ To use it, please just request a free API key on [OMDb](http://www.omdbapi.com/a
 
 -   `-d, --DataFolder`         Specify the location of the data folder (Must be an admin on Windows)
     - e.g. --DataFolder="D:\Your Data\Jackett\".
-    - Don't use this on Unix (mono) systems. On Unix just adjust the HOME directory of the user to the datadir or set the XDG_CONFIG_HOME environment variable.
+    - Don't use this on Unix (mono) systems. On Unix just adjust the HOME directory of the user to the data folder or set the XDG_CONFIG_HOME environment variable.
 
 -   `--NoRestart`              Don't restart after update
 
