@@ -257,7 +257,7 @@ namespace Jackett.Updater
                 "Definitions/01torrent.yml",
                 "Definitions/24rolika.yml",
                 "Definitions/32pages.yml",
-                "Definitions/3evils.yml",
+                "Definitions/3evils-api.yml",
                 "Definitions/420files.yml",
                 "Definitions/7torrents.yml",
                 "Definitions/DasUnerwartete.yml",
@@ -557,6 +557,7 @@ namespace Jackett.Updater
                 "Definitions/torrentseed.yml", // renamed to latinop2p #9065
                 "Definitions/torrentseeds.yml", // migrated to c#
                 "Definitions/torrentsmd.yml",
+                "Definitions/torrent-town.yml",
                 "Definitions/torrentsurf.yml", // renamed xtremebytes #9951
                 "Definitions/torrentvault.yml",
                 "Definitions/torrentwal.yml",
